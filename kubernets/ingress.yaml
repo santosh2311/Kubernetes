@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  namespace: ingress-nginx
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: santoshkumar.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: myservice
+            port: 
+              number: 80
